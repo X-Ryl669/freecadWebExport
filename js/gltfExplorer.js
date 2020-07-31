@@ -102,7 +102,9 @@ var gltfExplorer = function (menuId, files) {
               actions.createObject = {
                 id: "Body " + objectCount
               };
-			  this.model.nodeRoot[previousName][localObjCount++] = objectCount;
+			  if (previousName in this.model.nodeRoot)
+				this.model.nodeRoot[previousName][localObjCount++] = objectCount;
+			  else this.model.nodeRoot[previousName] = [objectCount];
 			  objectCount++;
            }
 		   
