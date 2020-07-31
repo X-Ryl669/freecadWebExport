@@ -86,6 +86,7 @@ var gltfExplorer = function (menuId, files) {
 		handleNode: (function() {
           var objectCount = 0;
 		  var localObjCount = 0;
+		  var bodyCount = 0;
 		  var previousName = "Body ";
           return function (nodeInfo, actions) {
 		   if (this.model.nodeRoot === undefined) 
@@ -93,7 +94,7 @@ var gltfExplorer = function (menuId, files) {
 		   // Find parent nodes (those with a children)
 		   // If they don't have a name, assign one for them now
 		   if (nodeInfo.mesh === undefined && nodeInfo.children !== undefined) {
-			 nodeInfo.name = "Body " + localObjCount;
+			 nodeInfo.name = "Node " + bodyCount++;
 		   }
 		   // If it's a parent node, let's remember it
 		   if (nodeInfo.name !== undefined) {
