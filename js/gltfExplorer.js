@@ -88,10 +88,11 @@ var gltfExplorer = function (menuId, files) {
 		  var localObjCount = 0;
 		  var previousName = "Body ";
           return function (nodeInfo, actions) {
+		   if (this.model.nodeRoot === undefined) 
+			 this.model.nodeRoot = {};
 		   if (nodeInfo.name !== undefined) {
 		     previousName = nodeInfo.name;
 			 var liNode = document.createElement("li");
-			 if (this.model.nodeRoot === undefined) this.model.nodeRoot = {};
 			 this.model.nodeRoot[previousName] = nodeInfo.children ? nodeInfo.children : [nodeInfo.mesh];
 			 liNode.innerHTML = `<icon class='bodySelect checked' data-name='${previousName}'></icon><a href='javascript:void'>${previousName}</a>`;
 			 document.querySelector(`#${menuId} ul`).insertBefore(liNode, null);
@@ -109,8 +110,6 @@ var gltfExplorer = function (menuId, files) {
           };
 		})()
     });
-
-    //  model.scene.camera.gimbalLock = false;
 
     var cameraFlight = new xeogl.CameraFlightAnimation();
 
