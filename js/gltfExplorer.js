@@ -101,7 +101,7 @@ var gltfExplorer = function (menuId, files) {
 		     previousName = nodeInfo.name;
 			 var liNode = document.createElement("li");
 			 this.model.nodeRoot[previousName] = nodeInfo.children ? nodeInfo.children : [nodeInfo.mesh];
-			 liNode.innerHTML = `<icon class='bodySelect checked' data-name='${previousName}'></icon><a href='javascript:void'>${previousName}</a>`;
+			 liNode.innerHTML = `<icon class='bodySelect checked' data-name='${previousName}'></icon><a href='#'>${previousName}</a>`;
 			 document.querySelector(`#${menuId} ul`).insertBefore(liNode, null);
 			 localObjCount = 0;
 		   }
@@ -142,18 +142,21 @@ var gltfExplorer = function (menuId, files) {
 			if (lastVisible !== undefined)
 			{
 				for (var i = 0; i < lastVisible.length; i++) {
+					if (! ("Body " + lastVisible[i] in model.scene.objects)) continue;
 					var object = model.scene.objects["Body " + lastVisible[i]];
 					object.visible = false;
 				}
 				lastVisible = undefined;
 			}
 			if (el) {
+				el.preventDefault();
 				lastObject = model.nodeRoot[el.target.text];
 				if (!el.target.parentNode.children[0].classList.contains("checked"))
 					lastVisible = lastObject;
 				else lastVisible = undefined;
 				var aabb = new Float32Array([1e12, 1e12, 1e12, -1e12, -1e12, -1e12]); 
 				for (var i = 0; i < lastObject.length; i++) {
+					if (! ("Body " + lastObject[i] in model.scene.objects)) continue;
 					var object = model.scene.objects["Body " + lastObject[i]];
 					object.ghosted = false;
 					object.highlighted = true;
@@ -173,7 +176,8 @@ var gltfExplorer = function (menuId, files) {
 	window.bodyVisibilityChanged = function(el) {
 		var objectIndexArray = model.nodeRoot[el.target.getAttribute("data-name")];
 		for (var i = 0; i < objectIndexArray.length; i++) {
-			model.scene.objects["Body " + objectIndexArray[i]].visible = !el.target.classList.contains('checked');
+			if ("Body " + objectIndexArray[i] in model.scene.objects)
+				model.scene.objects["Body " + objectIndexArray[i]].visible = !el.target.classList.contains('checked');
 		}
 		el.target.classList.toggle('checked');
 	};
