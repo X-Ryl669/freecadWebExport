@@ -1,6 +1,76 @@
-<html>
-<body>
-It works
-</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>xeogl Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <script src="js/xeogl.js"></script>
+    <script src="js/glTFModel.js"></script>
+
+    <link href="libs/perfect-scrollbar.css" rel="stylesheet"/>
+    <script src="libs/perfect-scrollbar.min.js"></script>
+    <script src="js/gltfExplorer.js"></script>
+	<style>
+	    ul { list-style: none; margin: 0; }
+
+		icon.bodySelect::before {
+			content: ' ';
+			width: 0.4em;
+			height: 0.4em;
+			margin-left: 0.1em;
+			margin-bottom: 0.4em;
+			display: inline-block;
+			border: 2px solid transparent;
+			border-radius: 50%;
+			background: transparent;
+		}
+		icon.bodySelect.checked::before {
+			border: 2px solid white;
+			background: white;
+		}
+		icon.bodySelect {
+			border: solid 2px #FFF;
+			border-radius: 75% 15%;
+			position: relative;
+			transform: rotate(45deg);
+			width: 1em;
+			height: 1em;
+			display: inline-block;
+			margin: 0.2em 0.4em;
+		}
+		li a {
+			vertical-align: middle;
+			display: inline-block;
+			height: 1.8em;
+			line-height: 1em;
+			padding-left: 0.5em;
+		}
+		</style>
+</head>
+<body>
+
+<div id="explorer" class="dark">
+<ul>
+<li><a href="javascript:selectObject(false)">Unselect</a></li>
+</ul>
+</div>
+
+<div id="info" style="left :220px;">
+</div>
+
+
+<script>
+
+    gltfExplorer("explorer", [
+        {
+            src: "Assembly.gltf",
+			ghosted: false,
+        }
+    ]);
+
+</script>
+</body>
 </html>
