@@ -32,3 +32,7 @@ So, here is how you should do to go from FreeCAD document to this:
 5. Fetch the `gh-pages` branch of this repository in a folder `export`
 6. Copy the `GTLF` file (and if generated, the `BIN` file) in the folder `export/` to `Assembly.{gltf,bin}`
 7. Copy all files from folder `export` to your webserver's document root and voilà, it's up!
+
+# Update 11/22/2020
+FreeCAD's repository now has support for exporting GLTF file directly so there is no more need for CAD Assistant, just select "GLTF" in the export format. 
+Hooray! 
