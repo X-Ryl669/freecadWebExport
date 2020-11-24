@@ -1,0 +1,33 @@
+{
+  "name": "freecadWebExport",
+  "version": "1.0.0",
+  "description": "A software to export a GLTF file from FreeCAD in a single distributable file",
+  "main": "src",
+  "repository": "https://github.com/X-Ryl669/freecadWebExport.git",
+  "author": "X-Ryl669 <boite.pour.spam@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "run-p start:*",
+    "start:serve": "anywhere -p $(npx get-port)",
+    "start:compile": "webpack . -do dist/main-dbg.js -w",
+    "build": "webpack",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "xeogl": "^0.9.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+ "anywhere": "^1.5.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.0",
+    "get-port-cli": "^2.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "raw-loader": "^0.5.1",
+    "terser-webpack-plugin": "^3.0.8",
+    "webpack-fix-style-only-entries": "^0.5.1"
+  }
+}
