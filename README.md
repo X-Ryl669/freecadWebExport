@@ -20,7 +20,8 @@ Please go [here for a demo](https://x-ryl669.github.io/freecadWebExport)
 6. The original materials and colors from your FreeCAD document are kept and not modified. It's possible to replace materials and colors by generic contrasting colors to improve visibility too. 
  
 # Cons
-Currently, it's not a single document file (but it can be, with some work) so you need to serve the output folder/archive via a webserver.
+~~Currently, it's not a single document file (but it can be, with some work) so you need to serve the output folder/archive via a webserver.~~
+Check the **singleFile** branch for a version of the code with a single file (usable for distribution without a webserver)
 
 # Process to create this:
 So, here is how you should do to go from FreeCAD document to this:
