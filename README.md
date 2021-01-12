@@ -9,6 +9,7 @@ library (Open CASCADE), this requirement can be probably removed in the future.
 
 # Demo
 Please go [here for a demo](https://x-ryl669.github.io/freecadWebExport)
+You'll find more information on [this post](https://blog.cyril.by/en/software/freecadwebexport) too
 
 # Pros
 
