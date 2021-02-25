@@ -8,7 +8,7 @@ Currently, the steps listed below require an external (free) software (not open 
 library (Open CASCADE), this requirement can be probably removed in the future.
 
 # Demo
-Please go [here for a demo](https://x-ryl669.github.io/freecadWebExport)
+Please go [here for a demo](https://x-ryl669.github.io/freecadWebExport). A blog post describing it is [here](https://blog.cyril.by/https://blog.cyril.by/en/software/freecadwebexport).
 
 # Pros
 
